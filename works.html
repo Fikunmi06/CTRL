@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTRL SQUAD | Works - The Platoons Entertainment</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            coral: '#FF5F5F',
+                            coralHover: '#E04E4E',
+                            darkBg: '#050505',
+                            cardBg: '#121214',
+                            inputBg: '#18181B',
+                            border: '#242429',
+                            muted: '#8A8A93',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050505;
+            color: #FFFFFF;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Minimal underline inputs matching image */
+        .input-line {
+            background: transparent;
+            border-bottom: 1px solid #27272A;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            color: #FFFFFF;
+            transition: all 0.2s ease;
+        }
+
+        .input-line:focus {
+            outline: none;
+            border-bottom-color: #FF5F5F;
+            box-shadow: none;
+        }
+
+        .input-line::placeholder {
+            color: #71717A;
+            font-size: 0.875rem;
+        }
+
+        .brand-mark {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 46px;
+            height: 46px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            overflow: hidden;
+        }
+
+        .brand-mark img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* Custom scrollbar for gallery */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-coral selection:text-white">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="w-full pt-8 pb-6 px-6 md:px-12 max-w-[1440px] mx-auto flex items-center justify-between">
+        <!-- Brand Logo -->
+        <a href="index.html" class="flex items-center gap-3 group">
+            <span class="brand-mark" aria-label="CTRL SQUAD logo">
+                <img src="img/Ctrl.jpeg" alt="CTRL SQUAD logo" />
+            </span>
+            <span class="text-2xl font-black tracking-tight text-white">CTRL SQUAD</span>
+        </a>
+
+        <!-- Header Action Buttons (Right side pills) -->
+        <nav class="flex items-center gap-3">
+            <a href="works.html" class="px-5 py-2 rounded-full border border-white/20 text-xs font-semibold tracking-wider text-white hover:bg-white/10 transition-all uppercase">
+                WORK
+            </a>
+            <a href="about.html" class="px-5 py-2 rounded-full bg-[#18181A] text-xs font-semibold tracking-wider text-neutral-300 hover:text-white hover:bg-neutral-800 transition-all uppercase">
+                ABOUT
+            </a>
+            <a href="contact.html" class="px-5 py-2 rounded-full border border-white/20 text-xs font-semibold tracking-wider text-white hover:bg-brand-coral hover:border-brand-coral transition-all uppercase">
+                CONTACT US
+            </a>
+        </nav>
+    </header>
+
+    <!-- MAIN TWO-COLUMN SECTION -->
+    <main class="max-w-[1440px] mx-auto px-6 md:px-12 pt-8 pb-24">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+
+            <!-- LEFT SIDEBAR -->
+            <aside class="lg:col-span-4 space-y-10">
+                
+                <!-- Works List Header & Projects Navigation -->
+                <div class="space-y-4">
+                    <span class="text-xs text-neutral-500 font-medium tracking-wide block">works</span>
+                    <ul id="projectList" class="space-y-3 font-medium text-base sm:text-lg">
+                        <li>
+                            <button onclick="selectProject('platoons')" id="proj-platoons" class="project-item text-white border-b-2 border-brand-coral pb-0.5 text-left font-semibold transition-all">
+                                The Platoons Entertainment
+                            </button>
+                        </li>
+                        <li>
+                            <button onclick="selectProject('elcharis')" id="proj-elcharis" class="project-item text-neutral-400 hover:text-white text-left transition-all">
+                                El-Charis Logistics
+                            </button>
+                        </li>
+                        <li>
+                            <button onclick="selectProject('amazinggrace')" id="proj-amazinggrace" class="project-item text-neutral-400 hover:text-white text-left transition-all">
+                                Amazing Grace At Home LLC
+                            </button>
+                        </li>
+                        <li>
+                            <button onclick="selectProject('forteplus')" id="proj-forteplus" class="project-item text-neutral-400 hover:text-white text-left transition-all">
+                                Forteplus Projects & Services Ltd.
+                            </button>
+                        </li>
+                        <li>
+                            <button onclick="selectProject('morenag')" id="proj-morenag" class="project-item text-neutral-400 hover:text-white text-left transition-all">
+                                Morenag Energy
+                            </button>
+                        </li>
+                        <li>
+                            <button onclick="selectProject('kenko')" id="proj-kenko" class="project-item text-neutral-400 hover:text-white text-left transition-all">
+                                Kenko Community Health
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- START YOUR PROJECT FORM CARD -->
+                <div class="bg-brand-cardBg border border-brand-border/80 rounded-2xl p-6 sm:p-8 space-y-6">
+                    <h2 class="text-2xl font-bold tracking-tight text-white">Start Your Project</h2>
+
+                    <form id="projectForm" onsubmit="handleFormSubmit(event)" class="space-y-5">
+                        <!-- Full Name -->
+                        <div>
+                            <input type="text" id="fullName" required placeholder="Full Name" class="input-line w-full py-2.5 text-sm">
+                        </div>
+
+                        <!-- Email Address -->
+                        <div>
+                            <input type="email" id="email" required placeholder="Email Address" class="input-line w-full py-2.5 text-sm">
+                        </div>
+
+                        <!-- Project Type Dropdown -->
+                        <div class="relative">
+                            <select id="projectType" required class="input-line w-full py-2.5 text-sm appearance-none bg-transparent cursor-pointer pr-8 text-neutral-300 focus:text-white">
+                                <option value="" disabled selected class="bg-brand-cardBg text-neutral-400">Project Type</option>
+                                <option value="Web Development" class="bg-brand-cardBg text-white">Web Development</option>
+                                <option value="Mobile App" class="bg-brand-cardBg text-white">Mobile Application</option>
+                                <option value="Brand & UI/UX" class="bg-brand-cardBg text-white">Brand & UI/UX Design</option>
+                                <option value="Custom Software" class="bg-brand-cardBg text-white">Custom Software</option>
+                            </select>
+                            <i data-lucide="chevron-down" class="w-4 h-4 text-neutral-400 absolute right-1 top-3 pointer-events-none"></i>
+                        </div>
+
+                        <!-- Describe Your Project -->
+                        <div>
+                            <input type="text" id="description" required placeholder="Describe Your Project" class="input-line w-full py-2.5 text-sm">
+                        </div>
+
+                        <!-- Budget Range Dropdown -->
+                        <div class="relative">
+                            <select id="budget" required class="input-line w-full py-2.5 text-sm appearance-none bg-transparent cursor-pointer pr-8 text-neutral-300 focus:text-white">
+                                <option value="" disabled selected class="bg-brand-cardBg text-neutral-400">Budget Range</option>
+                                <option value="$5k - $10k" class="bg-brand-cardBg text-white">$5,000 - $10,000</option>
+                                <option value="$10k - $25k" class="bg-brand-cardBg text-white">$10,000 - $25,000</option>
+                                <option value="$25k - $50k" class="bg-brand-cardBg text-white">$25,000 - $50,000</option>
+                                <option value="$50k+" class="bg-brand-cardBg text-white">$50,000+</option>
+                            </select>
+                            <i data-lucide="chevron-down" class="w-4 h-4 text-neutral-400 absolute right-1 top-3 pointer-events-none"></i>
+                        </div>
+
+                        <!-- Timeline Dropdown -->
+                        <div class="relative">
+                            <select id="timeline" required class="input-line w-full py-2.5 text-sm appearance-none bg-transparent cursor-pointer pr-8 text-neutral-300 focus:text-white">
+                                <option value="" disabled selected class="bg-brand-cardBg text-neutral-400">Timeline</option>
+                                <option value="1-2 Months" class="bg-brand-cardBg text-white">1 - 2 Months</option>
+                                <option value="2-4 Months" class="bg-brand-cardBg text-white">2 - 4 Months</option>
+                                <option value="4+ Months" class="bg-brand-cardBg text-white">4+ Months</option>
+                            </select>
+                            <i data-lucide="chevron-down" class="w-4 h-4 text-neutral-400 absolute right-1 top-3 pointer-events-none"></i>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="pt-4">
+                            <button type="submit" class="w-full py-3.5 rounded-full bg-brand-coral hover:bg-brand-coralHover text-white font-semibold text-sm transition-all shadow-lg shadow-brand-coral/20">
+                                Submit
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Lower Left Quote Button -->
+                <div>
+                    <button onclick="document.getElementById('fullName').focus()" class="px-6 py-3 rounded-full bg-[#18181C] border border-white/10 hover:border-white/30 text-neutral-200 text-xs font-semibold tracking-wider transition-all uppercase">
+                        GET A QUOTE
+                    </button>
+                </div>
+
+            </aside>
+
+            <!-- RIGHT CONTENT AREA (PROJECT SHOWCASE) -->
+            <section class="lg:col-span-8 space-y-10">
+
+                <!-- Horizontal Visual Mockup Grid -->
+                <div id="galleryContainer" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div id="img1" class="aspect-[4/5] rounded-xl border border-white/5 shadow-2xl relative overflow-hidden group">
+                        <img id="galleryImg1" src="img/TP1.PNG" alt="The Platoons Entertainment project screenshot" class="w-full h-full object-cover object-center" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
+                    </div>
+                    <div id="img2" class="aspect-[4/5] rounded-xl border border-white/5 shadow-2xl relative overflow-hidden group">
+                        <img id="galleryImg2" src="img/TP2.PNG" alt="The Platoons Entertainment secondary screenshot" class="w-full h-full object-cover object-center" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
+                    </div>
+                    <div id="img3" class="aspect-[4/5] rounded-xl border border-white/5 shadow-2xl relative overflow-hidden group">
+                        <img id="galleryImg3" src="img/TP1.PNG" alt="The Platoons Entertainment third screenshot" class="w-full h-full object-cover object-center" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
+                    </div>
+                </div>
+
+                <!-- Project Header & External Badge Link -->
+                <div class="space-y-6">
+                    <div class="flex items-center gap-3">
+                        <!-- Document/File Badge Icon -->
+                        <i data-lucide="file-text" class="w-6 h-6 text-white stroke-[1.75]"></i>
+                        <h1 id="projectTitle" class="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+                            The Platoons Entertainment
+                        </h1>
+                    </div>
+
+                    <!-- External Button Badge -->
+                    <div>
+                        <a id="projectExternalBtn" href="#" target="_blank" class="inline-flex items-center gap-3 px-8 py-3.5 rounded-full border border-white/30 bg-transparent hover:bg-white/10 text-white font-semibold text-sm transition-all group">
+                            <span id="badgeLogoText" class="tracking-wide">THE <strong class="font-black">Platoons</strong> ◆</span>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4 text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Narrative Copy -->
+                <div id="projectNarrative" class="space-y-6 text-neutral-300 text-sm sm:text-base leading-relaxed font-normal">
+                    <p id="p1">
+                        Platoons Entertainment is a creative-driven brand operating within the entertainment space, requiring a digital presence that reflects its energy, originality, and cultural relevance. As a brand rooted in creativity and expression, it was important that its online platform did more than just exist it needed to communicate identity, evoke emotion, and leave a lasting impression on its audience.
+                    </p>
+                    <p id="p2">
+                        However, translating such a dynamic and expressive brand into a digital experience presents a unique challenge. The platform needed to strike a balance between visual boldness and functional clarity, ensuring that users are both engaged and guided as they interact with the website.
+                    </p>
+                    <p id="p3">
+                        The objective of this project was to design and develop a website that not only showcases the brand's identity but also delivers a smooth, immersive, and high-performance user experience. Beyond aesthetics, the platform needed to provide clear structure, intuitive navigation, and seamless interaction, allowing users to easily explore content while still feeling the creative essence of the brand.
+                    </p>
+                </div>
+
+                <!-- Date Stamp -->
+                <div class="pt-4 border-t border-brand-border/40">
+                    <span id="projectDate" class="text-sm font-medium text-neutral-400">January 2026</span>
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+    <!-- INTERACTIVE SCRIPT -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Project Data Map
+        const projectsData = {
+            platoons: {
+                title: "The Platoons Entertainment",
+                badgeText: "THE <strong class='font-black'>Platoons</strong> ◆",
+                p1: "The Platoons is a culture-first entertainment platform built to help audiences discover high-energy events, nightlife experiences, and curated experiences that bring people together across Lagos and beyond.",
+                p2: "The site needed to feel vibrant, premium, and emotionally engaging while still delivering fast discovery, event browsing, and a clear path to tickets and community engagement.",
+                p3: "The result is a bold digital experience that captures the energy of the brand and creates a memorable, conversion-ready channel for both event organizers and curious audiences.",
+                date: "2026",
+                externalLink: "https://www.theplatoons.com/experience",
+                images: ["img/TP1.PNG", "img/TP2.PNG", "img/TP1.PNG"]
+            },
+            elcharis: {
+                title: "El-Charis Logistics",
+                badgeText: "EL-CHARIS <strong class='font-black'>LOGISTICS</strong> ◆",
+                p1: "El-Charis Logistics provides end-to-end freight and cargo solutions across land, air, and ocean routes, with an emphasis on visibility, support, and secure transit coordination.",
+                p2: "The project focused on presenting a professional logistics brand with a strong service story, tracking features, and a digital interface that makes shipping and freight management feel clear and dependable.",
+                p3: "The final platform creates trust through streamlined service communication, stronger brand positioning, and a more modern client experience for businesses that need reliable movement of goods.",
+                date: "2026",
+                externalLink: "https://www.elcharislogistics.org/",
+                images: ["img/EL1.PNG", "img/EL2.PNG", "img/EL1.PNG"]
+            },
+            amazinggrace: {
+                title: "Amazing Grace At Home LLC",
+                badgeText: "AMAZING <strong class='font-black'>GRACE</strong> ◆",
+                p1: "Amazing Grace At Home offers compassionate home care and healthcare support services for families seeking reliable, human-centered care in the comfort of home.",
+                p2: "The design needed to project warmth, professionalism, and trust while clearly explaining services, availability, and accessible support for families in need of dependable caregiving.",
+                p3: "The website balances compassionate branding with strong conversion paths, helping families connect quickly to the care options and scheduling information they need.",
+                date: "2025",
+                externalLink: "https://www.amazinggracehomellc.com/",
+                images: ["img/AG1.PNG", "img/AG2.PNG", "img/AG1.PNG"]
+            },
+            forteplus: {
+                title: "Forteplus Projects & Services Ltd.",
+                badgeText: "FORTEPLUS <strong class='font-black'>PROJECTS</strong> ◆",
+                p1: "Forteplus Projects & Services Limited delivers construction, consulting, and project management solutions with a reputation for quality, consistency, and timely execution.",
+                p2: "The brief required a corporate-facing digital presence that confidently demonstrated project work, engineering capability, and a strong professional brand image.",
+                p3: "The site communicates expertise, delivery credibility, and service clarity, positioning the company as a serious partner for high-impact construction and engineering work.",
+                date: "2025",
+                externalLink: "https://forteplus-projects-services-ltd-ser.vercel.app/",
+                images: ["img/F1.PNG", "img/F2.PNG", "img/F3.PNG"]
+            },
+            morenag: {
+                title: "Morenag Energy",
+                badgeText: "MORENAG <strong class='font-black'>ENERGY</strong> ◆",
+                p1: "Morenag Energy provides fuel delivery and energy-support services tailored for homes and businesses needing efficient, transparent, and dependable refueling access.",
+                p2: "The brand required a practical, conversion-focused online presence that could clearly communicate service value, logistics, and order convenience without losing ease of use.",
+                p3: "The platform creates a stronger digital credibility layer for the business, improving customer trust and making fast ordering, tracking, and support feel simple and accessible.",
+                date: "2025",
+                externalLink: "https://www.morenagenergy.com/",
+                images: ["img/ME1.PNG", "img/ME2.PNG", "img/ME1.PNG"]
+            },
+            kenko: {
+                title: "Kenko Community Health",
+                badgeText: "KENKO <strong class='font-black'>HEALTH</strong> ◆",
+                p1: "Kenko Community Health is a community-centered health initiative focused on education, outreach, awareness, and preventive care that meets people where they are.",
+                p2: "The project needed a platform that communicated empathy, trust, and real-world health impact while making it easier for communities, volunteers, and supporters to engage with the mission.",
+                p3: "The website presents a compelling mission-driven story, strengthens the organisation's online credibility, and gives the public a clearer understanding of the work being done to improve health outcomes.",
+                date: "2025",
+                externalLink: "https://www.kenkoinitiative.com",
+                images: ["img/K1.PNG", "img/K2.PNG", "img/K1.PNG"]
+            }
+        };
+
+        // Switch Active Project
+        function selectProject(key) {
+            const data = projectsData[key];
+            if (!data) return;
+
+            document.querySelectorAll('.project-item').forEach(btn => {
+                btn.className = "project-item text-neutral-400 hover:text-white text-left transition-all";
+            });
+
+            const activeBtn = document.getElementById(`proj-${key}`);
+            if (activeBtn) {
+                activeBtn.className = "project-item text-white border-b-2 border-brand-coral pb-0.5 text-left font-semibold transition-all";
+            }
+
+            document.getElementById('projectTitle').innerText = data.title;
+            document.getElementById('badgeLogoText').innerHTML = data.badgeText;
+            document.getElementById('p1').innerText = data.p1;
+            document.getElementById('p2').innerText = data.p2;
+            document.getElementById('p3').innerText = data.p3;
+            document.getElementById('projectDate').innerText = data.date;
+            document.getElementById('projectExternalBtn').href = data.externalLink;
+
+            const img1 = document.getElementById('galleryImg1');
+            const img2 = document.getElementById('galleryImg2');
+            const img3 = document.getElementById('galleryImg3');
+
+            if (img1) img1.src = data.images[0];
+            if (img2) img2.src = data.images[1];
+            if (img3) img3.src = data.images[2];
+        }
+
+        // Handle Form Submission
+        function handleFormSubmit(e) {
+            e.preventDefault();
+
+            const form = document.getElementById('projectForm');
+            const name = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const projectType = document.getElementById('projectType').value;
+            const description = document.getElementById('description').value.trim();
+            const budget = document.getElementById('budget').value;
+            const timeline = document.getElementById('timeline').value;
+
+            if (!name || !email || !projectType || !description || !budget || !timeline) {
+                return;
+            }
+
+            const whatsappNumber = '2348106794666';
+            const message = encodeURIComponent(
+                `Hello CTRL SQUAD, my name is ${name}.\nEmail: ${email}\nProject Type: ${projectType}\nProject Details: ${description}\nBudget Range: ${budget}\nTimeline: ${timeline}`
+            );
+
+            window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+            form.reset();
+        }
+    </script>
+</body>
+</html>

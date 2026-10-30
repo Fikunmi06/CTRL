@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTRL SQUAD | Contact Us</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            coral: '#FF5F5F',
+                            coralHover: '#E04E4E',
+                            darkBg: '#050505',
+                            cardBg: '#121215',
+                            border: '#1F1F24',
+                            muted: '#8E8E9F',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050505;
+            color: #FFFFFF;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Minimal underline inputs matching image source */
+        .input-line {
+            background: transparent;
+            border-bottom: 1px solid #27272A;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            color: #FFFFFF;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 0;
+            padding-left: 0;
+        }
+
+        .input-line:focus {
+            outline: none;
+            border-bottom-color: #FF5F5F;
+            box-shadow: none;
+        }
+
+        .input-line::placeholder {
+            color: #71717A;
+            font-size: 0.875rem;
+            font-style: italic;
+        }
+
+        /* Glassmorphism Cards */
+        .contact-card {
+            background: #111114;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .contact-card:hover {
+            border-color: rgba(255, 95, 95, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .glass-nav {
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .brand-mark {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 46px;
+            height: 46px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            overflow: hidden;
+        }
+
+        .brand-mark img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-coral selection:text-white flex flex-col min-h-screen">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="w-full pt-8 pb-6 px-6 md:px-12 max-w-[1440px] mx-auto flex items-center justify-between">
+        <!-- Brand Logo -->
+        <a href="index.html" class="flex items-center gap-3 group">
+            <span class="brand-mark" aria-label="CTRL SQUAD logo">
+                <img src="img/Ctrl.jpeg" alt="CTRL SQUAD logo" />
+            </span>
+            <span class="text-2xl font-black tracking-tight text-white">CTRL SQUAD</span>
+        </a>
+
+        <!-- Header Action Buttons (Right Side Pills) -->
+        <nav class="hidden md:flex items-center gap-3">
+            <a href="works.html" class="px-5 py-2 rounded-full border border-white/20 text-xs font-semibold tracking-wider text-white hover:bg-white/10 transition-all uppercase">
+                WORK
+            </a>
+            <a href="about.html" class="px-5 py-2 rounded-full bg-[#18181A] text-xs font-semibold tracking-wider text-neutral-300 hover:text-white hover:bg-neutral-800 transition-all uppercase">
+                ABOUT
+            </a>
+            <a href="contact.html" class="px-5 py-2 rounded-full border border-brand-coral text-xs font-semibold tracking-wider text-white bg-brand-coral/10 uppercase">
+                CONTACT US
+            </a>
+        </nav>
+
+        <!-- Mobile Nav Toggle -->
+        <button id="mobileMenuBtn" class="md:hidden text-white p-2 focus:outline-none" aria-label="Toggle Menu">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden md:hidden bg-[#0A0A0C] border-b border-brand-border px-6 py-6 flex flex-col gap-4">
+        <a href="works.html" class="text-base text-neutral-400 hover:text-white uppercase font-medium">Work</a>
+        <a href="about.html" class="text-base text-neutral-400 hover:text-white uppercase font-medium">About</a>
+        <a href="contact.html" class="text-base text-white uppercase font-bold text-brand-coral">Contact Us</a>
+    </div>
+
+    <!-- MAIN CONTACT FORM SECTION -->
+    <main class="flex-grow max-w-[1440px] w-full mx-auto px-6 md:px-12 pt-12 pb-20">
+        
+        <!-- Main Title -->
+        <h1 class="text-3xl sm:text-5xl md:text-6xl font-normal tracking-tight text-white mb-16">
+            Start a Project With CTRL Squad
+        </h1>
+
+        <!-- Two Column Split Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            
+            <!-- LEFT COLUMN: Contact Form -->
+            <div class="lg:col-span-6 space-y-8">
+                <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-8">
+                    
+                    <!-- FULL NAME -->
+                    <div class="space-y-1">
+                        <input type="text" id="fullName" required placeholder="FULL NAME" class="input-line w-full py-3 text-sm italic tracking-wide uppercase placeholder:not-italic">
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="space-y-1">
+                        <input type="tel" id="phone" required placeholder="Phone" class="input-line w-full py-3 text-sm italic tracking-wide placeholder:not-italic">
+                    </div>
+
+                    <!-- EMAIL -->
+                    <div class="space-y-1">
+                        <input type="email" id="email" required placeholder="EMAIL" class="input-line w-full py-3 text-sm italic tracking-wide uppercase placeholder:not-italic">
+                    </div>
+
+                    <!-- Select A Service Dropdown -->
+                    <div class="relative space-y-1">
+                        <select id="service" required class="input-line w-full py-3 text-sm italic tracking-wide appearance-none bg-transparent cursor-pointer pr-8 text-neutral-300 focus:text-white placeholder:not-italic">
+                            <option value="" disabled selected class="bg-[#121215] text-neutral-400 not-italic">Select A Service</option>
+                            <option value="Web Development" class="bg-[#121215] text-white not-italic">Web Development</option>
+                            <option value="Custom Software" class="bg-[#121215] text-white not-italic">Custom Software</option>
+                            <option value="UI/UX & Product Design" class="bg-[#121215] text-white not-italic">UI/UX & Product Design</option>
+                            <option value="E-Commerce Platforms" class="bg-[#121215] text-white not-italic">E-Commerce Platforms</option>
+                            <option value="Mobile Application" class="bg-[#121215] text-white not-italic">Mobile Application</option>
+                        </select>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-neutral-400 absolute right-2 top-3.5 pointer-events-none"></i>
+                    </div>
+
+                    <!-- SUBMIT BUTTON -->
+                    <div class="pt-6">
+                        <button type="submit" class="w-full py-3.5 rounded-full border border-brand-coral hover:bg-brand-coral/10 text-white font-medium text-xs tracking-widest uppercase transition-all duration-300 shadow-lg shadow-brand-coral/10">
+                            SUBMIT
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+            <!-- RIGHT COLUMN: Floating Brand Code Box -->
+            <div class="lg:col-span-6 flex items-center justify-center lg:justify-end min-h-[300px] lg:min-h-[400px]">
+                <div class="brand-mark w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#141418] border border-white/10 flex items-center justify-center shadow-2xl hover:scale-105 transition-transform duration-300" aria-label="CTRL SQUAD logo">
+                    <img src="img/Ctrl.jpeg" alt="CTRL SQUAD logo" />
+                </div>
+            </div>
+
+        </div>
+
+        <!-- BOTTOM INFO CARDS (3 Rounded Dark Container Grid) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-24">
+            
+            <!-- Card 1: Chat with us -->
+            <div class="contact-card rounded-2xl p-6 sm:p-8 space-y-4 flex flex-col justify-between">
+                <!-- Icon Badge (Coral Background) -->
+                <div class="w-10 h-10 rounded-xl bg-[#FF5F5F]/90 flex items-center justify-center text-white shadow-md">
+                    <i data-lucide="message-square" class="w-5 h-5"></i>
+                </div>
+                <div class="space-y-1">
+                    <p class="text-xs sm:text-sm text-neutral-300 font-medium">Chat with us</p>
+                    <a href="https://wa.me/2348106794666?text=Hello%20CTRL%20SQUAD%2C%20I%20want%20to%20start%20a%20project." target="_blank" rel="noopener noreferrer" class="text-xs sm:text-sm text-white font-bold underline underline-offset-4 decoration-white/40 hover:decoration-brand-coral transition-colors block">
+                        +234 810 679 4666
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 2: Visit our office HQ -->
+            <div class="contact-card rounded-2xl p-6 sm:p-8 space-y-4 flex flex-col justify-between">
+                <!-- Icon Badge (Blue Background) -->
+                <div class="w-10 h-10 rounded-xl bg-[#3B82F6] flex items-center justify-center text-white shadow-md">
+                    <i data-lucide="map-pin" class="w-5 h-5"></i>
+                </div>
+                <div class="space-y-1">
+                    <p class="text-xs sm:text-sm text-neutral-300 font-medium">Visit our office HQ</p>
+                    <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="text-xs sm:text-sm text-white font-bold underline underline-offset-4 decoration-white/40 hover:decoration-brand-coral transition-colors block">
+                        View on Google Maps
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 3: Phone Contact -->
+            <div class="contact-card rounded-2xl p-6 sm:p-8 space-y-4 flex flex-col justify-between">
+                <!-- Icon Badge (Teal Background) -->
+                <div class="w-10 h-10 rounded-xl bg-[#2DD4BF] flex items-center justify-center text-white shadow-md">
+                    <i data-lucide="phone" class="w-5 h-5"></i>
+                </div>
+                <div class="space-y-1">
+                    <p class="text-xs sm:text-sm text-neutral-300 font-medium">Mon-Fri 8am to 5pm.</p>
+                    <a href="tel:+2348106794666" class="text-xs sm:text-sm text-white font-bold underline underline-offset-4 decoration-white/40 hover:decoration-brand-coral transition-colors block">
+                        +234 810 679 4666
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER COPYRIGHT -->
+    <footer class="py-8 border-t border-white/5 text-center text-xs text-neutral-500 font-mono">
+        &copy; 2026 CTRL SQUAD. All rights reserved.
+    </footer>
+
+    <!-- INTERACTIVE SCRIPT -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Nav Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Form Submit Handler
+        function handleContactSubmit(e) {
+            e.preventDefault();
+
+            const form = document.getElementById('contactForm');
+            const name = document.getElementById('fullName').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const service = document.getElementById('service').value;
+
+            if (!name || !phone || !email || !service) {
+                return;
+            }
+
+            const whatsappNumber = '2348106794666';
+            const message = encodeURIComponent(
+                `Hello CTRL SQUAD, my name is ${name}.\nPhone: ${phone}\nEmail: ${email}\nService: ${service}\nI would like to discuss a project.`
+            );
+
+            window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+            form.reset();
+        }
+    </script>
+</body>
+</html>
